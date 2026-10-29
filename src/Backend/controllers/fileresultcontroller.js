@@ -94,4 +94,42 @@ const updatefileresult=async (req,res)=>{
         });
     }
 }
-module.exports={createfileresult,updatefileresult}
+
+
+const getfileresult = async (req, res) => {
+    try {
+        const email = req.email || req.user?.email || req.query.email;
+
+        if (!email) {
+            return res.status(400).json({
+                success: false,
+                message: "Email is required"
+            });
+        }
+
+        const data = await fileResultData.findOne({ email: email });
+
+        if (!data) {
+            return res.status(404).json({
+                success: false,
+                message: "No result found for this email"
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Files retrieved successfully",
+            datafiles: data
+        });
+
+    } catch (error) {
+        console.error("Get file data error:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Failed to get file data",
+            error: error.message
+        });
+    }
+};
+module.exports={createfileresult,updatefileresult,getfileresult}

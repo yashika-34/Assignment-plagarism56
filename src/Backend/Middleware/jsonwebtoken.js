@@ -18,6 +18,7 @@ const middleware=(req,res,next)=>{
         )
 
         req.userId=decode.userId
+        // console.log("soham")
         next()
     }
     catch (error) {

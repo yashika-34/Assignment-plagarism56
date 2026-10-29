@@ -169,6 +169,8 @@ export async function handleSignup(event) {
       }
     );
 
+    
+
     // localStorage.removeItem("loggedIn");
     // localStorage.removeItem("userEmail");
     localStorage.removeItem("token");

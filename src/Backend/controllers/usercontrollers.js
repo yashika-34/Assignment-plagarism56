@@ -73,7 +73,7 @@ const getuserforlogin=async (req,res)=>{
         const token=jwt.sign(
             { userId: data._id },   
             process.env.JWT_SECRET,
-            { expiresIn: "30m" }
+            { expiresIn: "60m" }
         )
 
         return res.status(200).json({
@@ -97,6 +97,7 @@ const getuserforlogin=async (req,res)=>{
 
 
 const getUsernameByEmail = async (req, res) => {
+    
   try {
     const foundUser = await user.findById(req.userId)
     if (!foundUser) {
@@ -147,5 +148,7 @@ const getUsernameByEmail = async (req, res) => {
 //         res.send()
 //     }
 // }
+
+
 
 module.exports={createuser,getuserforlogin,getUsernameByEmail};
