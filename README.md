@@ -44,4 +44,4 @@ View previously generated reports, similarity scores and download results.
 
 Track analysis activity, generated reports, average similarity and account settings.
 
-![Profile](assets/screenshots/profile.jpeg)
+![Profile](assets/screenshots/profile.jpeg)"# Assignment-plagarism56" 
